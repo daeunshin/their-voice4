@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<title>Their Voice</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:300,300i,400,500,500i,700" rel="stylesheet">
+
+	<button onclick="topFunction()" id="myBtn" title="Go to top">∆ Top</button>
+	
+	<style>
+		*{font-family: 'Roboto', 'Roboto Condensed';}
+		html{font-family: 'Roboto', 'Roboto Condensed';}
+
+/*메뉴바*/
+		a:link, a:visited, a:active {text-decoration: none; color: white;}
+		nav{width: 100%;  position: fixed; margin: auto; height: 44px; background: black; opacity: 0.7; z-index: 9999; top:0;}
+		nav #logo {width: 200px;  height: 45px; text-align: center; line-height: 44px; float: left;}
+		nav #logo img{width: 37px; height: 32px; padding-top: 6px; margin: auto;}
+		nav #logo a{display: block; height: 44px; }
+		nav #logo a:hover {background: #737373; color: white;}
+		nav #mainNav{ float: right; margin: 0; padding: 0;}
+		nav #mainNav li {float: left; width: 130px; list-style: none; height: 44px;}
+		nav #mainNav a{ display: block; line-height: 44px; text-align: center;}
+		nav #mainNav a:hover{background: #737373; color: white;}
+
+	
+/*배경이미지*/	
+		#back{width: 100%; position: absolute; }
+
+/*헤더*/	
+		header{width: 740px; height: 400px; margin: auto; position: relative; padding-top: 12em; margin-left: 48%; margin-bottom: 230px; }
+		header h1{font-size: 6.5em; line-height: 1em;  margin:0; padding-bottom: 50px; font-weight: 700; }
+		header h2{margin: 0; font-size: 2em; font-weight: 400; padding-bottom: 15px; padding-left: 0.1em; }
+
+		#bline{background: black; height: 3px; width: 740px; overflow: hidden;  margin-top: -10px; margin-bottom: 0.5em; }
+
+
+		span, img {display: block; overflow: hidden;}
+		img{width: 100%;}
+
+
+
+/*이미지박스*/
+		article {width: 915px; margin: auto; }
+
+		.testimonies{margin-bottom: 9em;} 
+
+		section{width: 755px; height: 345px; margin: auto; margin-top: 3em; margin-bottom: 60px; }
+		section: after{content: ""; display: block; clear: both;}
+
+		.col3{width: 30%;}
+		.col3 img {width: 440px; height: 300px;}
+
+		.text {width: 295px; }
+
+		.col4 {padding-left: 10px;}
+		.col4 img {padding-top: 80px; width: 52px;  height :51px;}
+		
+		.section-texts{padding: 1.65%;}
+		.section-texts p{font-family: Roboto Condensed; margin: 0em; line-height: 1.1; font-size: 1.2em; font-weight: 700; margin-right: 60px; padding-top: 10px; padding-left: 10px; margin-bottom:10px;}
+		.section-texts h2{width:300px; font-size: 2.5em; font-family: Roboto Condensed; font-weight: 300; margin:0em; margin-bottom: 0.1em; padding-top: 20px; margin-left: 35px;}
+		.section-texts h3{font-size: 1.1em; font-weight: 400; margin: 0em;margin-left: 35px; overflow: visible; width: 310px;}
+		
+
+		.left-section { margin-right: 0;}
+		.right-section { margin-left: 0;}
+
+		.left {float: left;}
+		.right {float: right;}
+
+
+
+/*따옴표*/
+		#evidence {margin-top: 30em; margin-bottom: 25em; }
+		#evidence h1{font-size: 12em; text-align: center; line-height: 1.3em; font-weight: 700; font-family: Roboto Condensed; margin-top: 0.5em; letter-spacing: -3px;}
+		.quotation {margin: auto; width: 98px; height: 97px;}
+
+
+/*마지막*/
+
+		#last { margin-top: 5em; display: block; overflow: hidden; margin-bottom: 23em;}
+		#last img {width:335px; height: 470px; float: right; padding-right: 5em; }
+		#last p {font-size: 1.2em; margin-top: 18.3em; width: 340px; margin-left: 5.6em; line-height: 1.45em;}
+
+/*푸터*/
+		footer{background: black; width: 100%; height: 430px; margin: auto; padding-bottom: 1em;}
+
+		#yline{background: #ffcb31; height: 3px; overflow: hidden;}
+		#footer{width: 1200px; height: 416px; margin: auto;}
+
+		#footer_left{width: 385px; float: left; padding-top: 5em; padding-left: 2em;}
+		#footer_left h1 {color: #EEE; font-size:2em; font-weight: 300; font-style: italic; padding-top: 1.6em; padding-bottom: 1em; line-height: 1.5em; text-align: left}
+		#footer_left p {color: #EEE; line-height: 1.8; font-size: 1em; font-weight: 300; padding-top: 1em;}
+
+		#footer_right{width: 570px; float: right; padding-top: 2em; padding-right: 2em;}
+		#footer_right img {width: 500px;}
+		#footer_right p{color: #EEE; font-size: 1em; line-height: 1.8; font-weight: 300; padding-top: 2.5em; padding-right: 2em;}
+
+
+
+		#myBtn {
+			    display: none; /* Hidden by default */
+			    position: fixed; /* Fixed/sticky position */
+			    bottom: 20px; /* Place the button at the bottom of the page */
+			    right: 30px; /* Place the button 30px from the right */
+			    z-index: 99; /* Make sure it does not overlap */
+			    border: none; /* Remove borders */
+			    outline: none; /* Remove outline */
+			    background: none; /* Set a background color */
+			    color: #727272; /* Text color */
+			    cursor: pointer; /* Add a mouse pointer on hover */
+			    padding: 15px; /* Some padding */
+			    border-radius: 10px; /* Rounded corners */
+			    font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+    color: #2D2D2D; /* Add a dark-grey background on hover */
+}
+	</style>
+</head>
+
+<body>
+	<!--  메뉴바  -->
+		<nav>
+			<div id="logo">
+				<a href="https://daeunshin.github.io/page1/" target="_blank"> <img src="butterfly.png"> </a>
+			</div>
+			<ul id="mainNav">
+			<li class="menuItem">
+				<a href="https://daeunshin.github.io/statue-of-peace/" target="_blank"> Statue of peace</a>
+			</li>
+			<li class="menuItem">
+				<a href="https://daeunshin.github.io/testimony3/" target="_blank"> Their voice</a>
+			</li>
+			<li class="menuItem">
+				<a href="https://daeunshin.github.io/page1/" target="_blank"> Story</a>
+			</li>
+		</nav>
+
+<!--
+<div id="img">
+			<img id="back" src="their.png">
+</div>
+-->
+
+<!--헤더-->
+	<header>
+		<h2>
+			Victims' Testimonies
+		</h2>
+		<div id="bline">
+			.
+		</div>
+		<h1>
+		Their voice- <br>
+		Who's wailing <br>
+		is it?
+		</h1>
+	</header>
+
+<!--메인박스-->
+	<article class="testimonies">
+		<section class="left-section">
+			<div class="col3 left">
+				<img src="./img/jumyup.jpg">
+			</div>
+			
+			<div class="text right">
+				<div class="col4">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts">
+					<p>
+					When I have seen so many soldiers at drill, I have never thought so many soldiers will come to me
+					</p>
+					<h2>Jum yup Gong </h2>
+					<h3>Muan, Jeollanam-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article class="testimonies">
+		<section class="right-section">
+			<div class="col3 right">
+				<img src="./img/wonok.jpg">
+			</div>
+			
+			<div class="text left">
+				<div class="col4 ">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts ">
+					<p>
+					I haven't been able to live as a human. As the wind and wave, my time went<br>
+					</p>
+					<h2>Won ok Gil </h2>
+					<h3>Heecheon, Pyeonganbuk-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article class="testimonies">
+		<section class="left-section">
+			<div class="col3 left">
+				<img src="./img/jungja.jpg">
+			</div>
+			
+			<div class="text right">
+				<div class="col4">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts">
+					<p>
+						Ought not to forget <br><br><br>
+					</p>
+					<h2>Jung ja Em </h2>
+					<h3>Jinju-si, Gyeongsangnam-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article class="testimonies">
+		<section class="right-section">
+			<div class="col3 right">
+				<img src="./img/seouown.jpg">
+			</div>
+			
+			<div class="text left">
+				<div class="col4 ">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts ">
+					<p>
+					It's like a dream that I survived. Even dream, this is too rough nightmare<br>
+					</p>
+					<h2>Seou own Jung </h2>
+					<h3>Hadong-gun, Gyeongsangnam-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article class="testimonies">
+		<section class="left-section">
+			<div class="col3 left">
+				<img src="./img/gijeong.png">
+			</div>
+			<div class="text right">
+				<div class="col4">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts">
+					<p>
+					I wanted to be a nurse,<br>
+					but I became a Wianbu <br> <br><br>
+					</p>
+					<h2>Gi jeong Lee </h2>
+					<h3>Dangjin-gun, Chungcheongnam-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article class="testimonies">
+		<section class="right-section">
+			<div class="col3 right">
+				<img src="./img/ilchul.jpg">
+			</div>
+			
+			<div class="text left">
+				<div class="col4 ">
+					<img src="./img/start.png">
+				</div>
+				<span class="section-texts ">
+					<p>
+					Father used to give dried persimmon to me when he came back home. I still like that, but sometimes I have to stop eating since it makes me homesick
+					</p>
+					<h2>Il chul Gang </h2>
+					<h3>Sangju-si, Gyeongsangbuk-do</h3>
+				</span>
+			</div>
+		</section>
+	</article>
+
+	<article id="evidence">
+		<div class="quotation">
+			<img src="./img/start.png">		
+		</div>
+		<h1>
+				I'm the<br>
+				Evidence
+		</h1>
+
+		<div class="quotation">
+			<img src="./img/end.png">		
+		</div>
+	</article>
+
+	<article id="last">
+		<img src="./img/last.jpg">
+		<p>
+			Some people are continually saying that no evidence of coercion of the Japanese Military 'Comfort women' was found. In order to fight back against their claim, the victims of Japanese Military Sexual Slavery has continued participating in weekly Wednesday Demonstration since 1992. They speak out loud that "I'm the Evidence" of the brutal incident regardless of the weather.
+		</p>
+		
+	</article>
+
+
+		<footer>
+			<div id="footer">
+				<div id="footer_left">
+					<p>
+						Daeun Shin<br>
+						danee_e@naver.com
+					</p>
+					<div id="yline">
+						.
+					</div>
+					<h1>We want Japan’s sufficient apology and compensation.</h1>
+				</div>
+
+				<div id="footer_right">
+					<img src="./img/yellow.png">
+					<p>
+						As time passed, the memory of our wartime experiences is beginning to fade. Japan still didn’t acknowledge the fact that they did war crimes during wartime as true. For us, military sexual slavery is not the past but the on-going problem. I made this website to remember our painful history and inform everyone about the truth.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
